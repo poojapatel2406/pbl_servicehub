@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join as a Provider | ServiceHub</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f2f5;
+    }
+    .join-form {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">ServiceHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-warning text-white" href="login.html">Login / Signup</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Join Form Section -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="join-form">
+        <h2 class="mb-4 text-center">Join as a Service Provider</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+          
+          <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="skill" class="form-label">Skill/Service Type</label>
+            <select id="skill" name="skill" class="form-select" required>
+              <option selected disabled>Select your skill</option>
+              <option>Plumber</option>
+              <option>Electrician</option>
+              <option>Carpenter</option>
+              <option>Painter</option>
+              <option>AC Technician</option>
+              <option>Cleaning Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" id="city" name="city" class="form-control" placeholder="Enter your city" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="experience" class="form-label">Experience (in years)</label>
+            <input type="number" id="experience" name="experience" class="form-control" min="0" placeholder="Example: 2" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="idproof" class="form-label">Upload ID Proof (Aadhar, PAN, etc.)</label>
+            <input type="file" id="idproof" name="idproof" class="form-control" accept=".jpg,.jpeg,.png,.pdf">
+          </div>
+
+         
+          <button type="submit" class="btn btn-warning text-white w-100">Send Reuest</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <p>© 2025 ServiceHub. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

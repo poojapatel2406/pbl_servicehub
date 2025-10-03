@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh Utsav Greeting Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .form-section {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .qr-section {
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            display: none;
+        }
+
+        .qr-code {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #ff6b35;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .greeting-page {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #ff9933, #ffffff, #138808);
+            min-height: 100vh;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .greeting-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: bounceIn 1.2s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .ganesh-emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .greeting-title {
+            font-size: 2.5em;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+
+        .greeting-message {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .donation-amount {
+            font-size: 2em;
+            color: #138808;
+            font-weight: bold;
+            background: #f0f8f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .blessing-text {
+            font-style: italic;
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .copy-link {
+            background: #e8f5e8;
+            border: 2px solid #138808;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            word-break: break-all;
+            font-size: 12px;
+        }
+
+        .copy-btn {
+            background: #138808;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Form -->
+        <div id="mainForm">
+            <div class="header">
+                <h1>🐘 गणेश उत्सव</h1>
+                <p>Generate Personalized Greeting</p>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="personName">Person Name:</label>
+                    <input type="text" id="personName" placeholder="Enter person's name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="donationAmount">Donation Amount (₹):</label>
+                    <input type="number" id="donationAmount" placeholder="Enter donation amount" required>
+                </div>
+                
+                <button class="generate-btn" onclick="generateGreeting()">Generate Greeting Link</button>
+            </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div id="qrSection" class="qr-section">
+            <h2>🙏 Greeting Generated for <span id="displayName"></span></h2>
+            
+            <div class="qr-code">
+                <div id="qrcode"></div>
+            </div>
+            
+            <div class="copy-link">
+                <strong>Share this link:</strong><br>
+                <div id="shareLink"></div>
+                <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+            </div>
+            
+            <button class="back-btn" onclick="goBack()">Generate Another</button>
+        </div>
+    </div>
+
+    <!-- Greeting Page (shows when link is opened) -->
+    <div id="greetingPage" class="greeting-page">
+        <div class="greeting-content">
+            <div class="ganesh-emoji">🐘</div>
+            <h1 class="greeting-title">गणपति बप्पा मोरया!</h1>
+            
+            <div class="greeting-message">
+                Dear <strong id="greetPersonName"></strong>,<br><br>
+                Thank you for your generous contribution to our Ganesh Utsav celebration!
+            </div>
+            
+            <div class="donation-amount">
+                Donation: ₹<span id="greetAmount"></span>
+            </div>
+            
+            <div class="blessing-text">
+                May Lord Ganesha bless you with happiness, prosperity, and success.<br>
+                Your support makes our celebration more meaningful!<br><br>
+                🙏 मंगलमूर्ति मोरया 🙏
+            </div>
+            
+            <button class="back-btn" onclick="showMainForm()">Generate New Greeting</button>
+        </div>
+    </div>
+
+    <script>
+        let currentData = {};
+
+        function generateGreeting() {
+            const name = document.getElementById('personName').value.trim();
+            const amount = document.getElementById('donationAmount').value.trim();
+            
+            if (!name || !amount) {
+                alert('Please fill in both name and donation amount');
+                return;
+            }
+
+            currentData = { name, amount };
+            
+            // Create a simple share link that works locally
+            const baseURL = 'http://192.168.1.2:5500/ganesh.html';
+            const shareURL = `${baseURL}?name=${encodeURIComponent(name)}&amount=${encodeURIComponent(amount)}&show=greeting`;
+            
+            // Show simple QR code using Google Charts (reliable)
+            document.getElementById('qrcode').innerHTML = `
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=ff6b35&bgcolor=ffffff&data=${encodeURIComponent(shareURL)}" 
+                     style="width: 200px; height: 200px;" 
+                     alt="QR Code"
+                     onerror="this.style.display='none'; document.getElementById('qrError').style.display='block';">
+                <div id="qrError" style="display:none; padding: 20px;">
+                    <p>QR Code could not load</p>
+                    <p>Please use the link below instead</p>
+                </div>
+            `;
+            
+            // Show share link
+            document.getElementById('shareLink').textContent = shareURL;
+            
+            // Show QR section
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('mainForm').style.display = 'none';
+            document.getElementById('qrSection').style.display = 'block';
+        }
+
+        function copyLink() {
+            const link = document.getElementById('shareLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = link;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        function goBack() {
+            document.getElementById('qrSection').style.display = 'none';
+            document.getElementById('mainForm').style.display = 'block';
+        }
+
+        function showMainForm() {
+            document.getElementById('greetingPage').style.display = 'none';
+            document.getElementById('mainForm').style.display = 'block';
+            // Clear the URL parameters
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        function showGreeting(name, amount) {
+            document.getElementById('greetPersonName').textContent = name;
+            document.getElementById('greetAmount').textContent = amount;
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('greetingPage').style.display = 'block';
+        }
+
+        // Check if URL has greeting parameters (when link is opened)
+        function checkURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const amount = urlParams.get('amount');
+            const show = urlParams.get('show');
+            
+            if (show === 'greeting' && name && amount) {
+                showGreeting(name, amount);
+            }
+        }
+
+        // Check URL parameters when page loads
+        window.onload = function() {
+            checkURLParams();
+        };
+    </script>
+</body>
+</html>

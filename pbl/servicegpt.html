@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceHub - Our Services</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    /* Orange Button */
+    .btn-orange {
+      background-color: #ff9800;
+      color: white;
+      padding: 8px 18px;
+      border: none;
+      transition: all 0.3s;
+    }
+    .btn-orange:hover {
+      background-color: #e68a00;
+      transform: scale(1.05);
+    }
+
+    /* Page Container */
+    .container {
+      width: 90%;
+      margin: auto;
+      padding: 40px 0;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .service-item {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    }
+    .service-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+    .service-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .service-item h3 {
+      margin: 10px 0;
+      color: black;
+      font-weight: 600;
+    }
+    .service-item p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Book Now Button */
+    .book-now {
+      display: inline-block;
+      background-color: #ff9800;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: background 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .book-now:hover {
+      background-color: #e68a00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">ServiceHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="homegpt.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="servicegpt.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="userdash.html">Dashboard</a></li>
+
+          <!-- Search Bar -->
+          <li class="nav-item ms-3">
+            <form class="d-flex" role="search" onsubmit="return false;">
+              <input id="searchInput" class="form-control me-2" type="search" placeholder="Search services..." aria-label="Search">
+              <button class="btn btn-outline-warning" type="button" onclick="filterServices()">Search</button>
+            </form>
+          </li>
+
+          <!-- Login/Signup Button -->
+          <li class="nav-item ms-3">
+            <a class="btn btn-orange" href="login1.html">Login / Signup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Services -->
+  <div class="container">
+    <h1>Our Home Services</h1>
+    <div class="services-grid" id="servicesGrid">
+      <div class="service-item">
+        <img src="images/splumber.jpg" alt="Plumbing">
+        <h3>Plumbing</h3>
+        <p>Fix leaks, install pipes, and repair water systems.</p>
+        <a href="description.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/selectrician.jpg" alt="Electrical Services">
+        <h3>Electrical Services</h3>
+        <p>Wiring, lighting installation, and electrical repairs.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/scarpenter.jpg" alt="Carpentry">
+        <h3>Carpentry</h3>
+        <p>Woodwork, furniture repair, and custom fittings.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/spainter.jpg" alt="Painting">
+        <h3>Painting</h3>
+        <p>Interior and exterior painting services.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/HVAC.JPG" alt="HVAC Services">
+        <h3>HVAC Services</h3>
+        <p>Heating, ventilation, and air conditioning repairs.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/computer.jpg" alt="Roofing">
+        <h3>Roofing</h3>
+        <p>Roof installation, repair, and maintenance.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/cleaning.jpg" alt="Cleaning Services">
+        <h3>Cleaning Services</h3>
+        <p>House cleaning, deep cleaning, and maintenance.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/gardening.jpg" alt="Flooring">
+        <h3>Flooring</h3>
+        <p>Tile installation, polishing, and wooden flooring.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+
+      <div class="service-item">
+        <img src="images/tile.jpg" alt="Flooring">
+        <h3>Flooring</h3>
+        <p>Tile installation, polishing, and wooden flooring.</p>
+        <a href="booking.html" class="book-now">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Search Filter Script -->
+  <script>
+    function filterServices() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const services = document.querySelectorAll(".service-item");
+
+      let found = false;
+      services.forEach(service => {
+        const title = service.querySelector("h3").innerText.toLowerCase();
+        const desc = service.querySelector("p").innerText.toLowerCase();
+
+        if (title.includes(input) || desc.includes(input)) {
+          service.style.display = "block";
+          found = true;
+        } else {
+          service.style.display = "none";
+        }
+      });
+
+      // Show "No results found"
+      if (!found && input !== "") {
+        document.getElementById("servicesGrid").innerHTML =
+          "<p class='text-danger fw-bold'>No results found.</p>";
+      }
+    }
+
+    // Live search while typing
+    document.getElementById("searchInput").addEventListener("keyup", filterServices);
+  </script>
+
+</body>
+</html>

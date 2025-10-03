@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Workers</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #ff9800, #f57c00);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    h2 {
+      color: #f57c00;
+      margin-bottom: 15px;
+    }
+    .description {
+      background: #f9f9f9;
+      padding: 15px;
+      border-left: 5px solid #ff9800;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .workers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .worker-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .worker-card:hover {
+      transform: translateY(-5px);
+    }
+    .worker-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .worker-info {
+      padding: 15px;
+    }
+    .worker-info h3 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+    .worker-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ff9800;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #e68a00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Available Workers</h1>
+    <p>Select the best worker for your chosen date and location</p>
+  </header>
+
+  <div class="container">
+    <h2>Workers Near You</h2>
+    <div class="description">
+      <p>Below are the workers available on your selected date and time. Check their profile, ratings, and experience, then click <strong>Select Worker</strong> to continue booking.</p>
+    </div>
+
+    <div class="workers-grid">
+      <!-- Worker 1 -->
+      <div class="worker-card">
+        <img src="https://images.unsplash.com/photo-1581091215367-59ab6d5d6d3b?w=800" alt="Worker 1">
+        <div class="worker-info">
+          <h3>Ramesh Kumar</h3>
+          <p>Experience: 5 years</p>
+          <p>Rating: ⭐⭐⭐⭐☆</p>
+          <p>Specialty: Pipe Fittings, Leak Repairs</p>
+          <a href="details.html" class="btn">Select Worker</a>
+        </div>
+      </div>
+
+      <!-- Worker 2 -->
+      <div class="worker-card">
+        <img src="https://images.unsplash.com/photo-1603575448364-0377c9d35c81?w=800" alt="Worker 2">
+        <div class="worker-info">
+          <h3>Arjun Singh</h3>
+          <p>Experience: 3 years</p>
+          <p>Rating: ⭐⭐⭐⭐⭐</p>
+          <p>Specialty: Bathroom & Kitchen Installations</p>
+          <a href="booking_form.html" class="btn">Select Worker</a>
+        </div>
+      </div>
+
+      <!-- Worker 3 -->
+      <div class="worker-card">
+        <img src="https://images.unsplash.com/photo-1603570417039-66f1cc6fada0?w=800" alt="Worker 3">
+        <div class="worker-info">
+          <h3>Sunil Verma</h3>
+          <p>Experience: 7 years</p>
+          <p>Rating: ⭐⭐⭐⭐☆</p>
+          <p>Specialty: Blocked Drains, Maintenance</p>
+          <a href="booking_form.html" class="btn">Select Worker</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

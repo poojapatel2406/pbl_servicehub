@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .profile-container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .details {
+            margin-top: 15px;
+        }
+        .back-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Worker Profile</h2>
+        <img id="worker-img" class="profile-img" src="" alt="Worker Image">
+        <div class="details">
+            <p><strong>Name:</strong> <span id="worker-name"></span></p>
+            <p><strong>Rating:</strong> <span id="worker-rating"></span> ⭐</p>
+            <p><strong>Feedback:</strong> <span id="worker-feedback"></span></p>
+            <p><strong>Experience:</strong> <span id="worker-experience"></span> years</p>
+            <p><strong>Specialization:</strong> <span id="worker-specialization"></span></p>
+        </div>
+        <button class="back-btn" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.getElementById("worker-img").src = getQueryParam("img");
+        document.getElementById("worker-name").innerText = getQueryParam("name");
+        document.getElementById("worker-rating").innerText = getQueryParam("rating");
+        document.getElementById("worker-feedback").innerText = getQueryParam("feedback");
+        document.getElementById("worker-experience").innerText = getQueryParam("experience") || "N/A";
+        document.getElementById("worker-specialization").innerText = getQueryParam("specialization") || "General";
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
