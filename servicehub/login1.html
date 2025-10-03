@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | ServiceHub</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #333;
+    }
+    .split {
+      display: flex;
+      min-height: 100vh;
+    }
+    .left-side {
+      flex: 1;
+      background: linear-gradient(to bottom right, #ff9800, #f57c00);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      padding: 40px;
+    }
+    .left-side h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .left-side p {
+      font-size: 1.1rem;
+      max-width: 400px;
+      text-align: center;
+    }
+    .right-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 40px;
+    }
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-control {
+      border-radius: 8px;
+      padding-left: 40px;
+    }
+    .input-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+    .input-group {
+      position: relative;
+    }
+    .form-control:focus {
+      border-color: #ff9800;
+      box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.25);
+    }
+    .btn-orange {
+      background-color: #ff9800;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .btn-orange:hover {
+      background-color: #e68a00;
+    }
+    .text-small {
+      font-size: 0.9rem;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      .split {
+        flex-direction: column;
+      }
+      .left-side, .right-side {
+        flex: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="split">
+  <div class="left-side">
+    <h1>ServiceHub</h1>
+    <p>Your trusted on-demand home service partner. Get professional help anytime, anywhere.</p>
+  </div>
+
+  <div class="right-side">
+    <div class="login-container">
+      <h2 class="text-center mb-4">Login to ServiceHub</h2>
+      <form action="login_process.php" method="post">
+        <div class="mb-3 input-group">
+          <i class="fa fa-envelope input-icon"></i>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="mb-3 input-group">
+          <i class="fa fa-lock input-icon"></i>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+          <i class="fa fa-eye toggle-password" onclick="togglePassword()"></i>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember" name="remember">
+            <label class="form-check-label text-small" for="remember">Remember Me</label>
+          </div>
+          <a href="forgot_password.html" class="text-small">Forgot Password?</a>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-orange">Login</button>
+        </div>
+
+        <p class="text-center text-small mt-3">Don't have an account? 
+          <a href="registration.html" class="text-decoration-none">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.querySelector(".toggle-password");
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordField.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
+  }
+</script>
+</body>
+</html>
